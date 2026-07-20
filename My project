@@ -1,0 +1,278 @@
+DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>تجربتي الأولى</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f8fafc;
+      color: #1e293b;
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    /* Header */
+    header {
+      background-color: #ffffff;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 70px;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: #1e3a8a;
+      letter-spacing: -0.5px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+    }
+
+    .nav-links a {
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: #475569;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: #1e3a8a;
+    }
+
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: #1e3a8a;
+    }
+
+    /* Hero */
+    .hero {
+      text-align: center;
+      padding: 6rem 1.5rem 5rem;
+      background: linear-gradient(180deg, #eff6ff 0%, #f8fafc 100%);
+    }
+
+    .hero h1 {
+      font-size: 2.8rem;
+      font-weight: 800;
+      color: #0f172a;
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+
+    .hero p {
+      font-size: 1.15rem;
+      color: #64748b;
+      max-width: 500px;
+      margin: 0 auto 2.5rem;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      background-color: #1e40af;
+      color: #ffffff;
+      padding: 0.85rem 2.5rem;
+      border-radius: 0.5rem;
+      font-size: 1.05rem;
+      font-weight: 600;
+      transition: background-color 0.2s, transform 0.15s;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn-primary:hover {
+      background-color: #1e3a8a;
+      transform: translateY(-2px);
+    }
+
+    /* Cards */
+    .cards-section {
+      padding: 4rem 1.5rem;
+    }
+
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .card {
+      background-color: #ffffff;
+      border-radius: 1rem;
+      padding: 2.5rem 1.5rem;
+      text-align: center;
+      box-shadow: 0 4px 6px -1px rgba(0,0,0,0.03), 0 2px 4px -1px rgba(0,0,0,0.02);
+      border: 1px solid #f1f5f9;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 15px -3px rgba(0,0,0,0.05), 0 4px 6px -2px rgba(0,0,0,0.025);
+    }
+
+    .card-icon {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      line-height: 1;
+    }
+
+    .card h3 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #0f172a;
+      margin-bottom: 0.75rem;
+    }
+
+    .card p {
+      font-size: 0.95rem;
+      color: #64748b;
+      line-height: 1.6;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #0f172a;
+      color: #94a3b8;
+      text-align: center;
+      padding: 1.5rem;
+      font-size: 0.9rem;
+      margin-top: 2rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .menu-toggle {
+        display: block;
+      }
+
+      .nav-links {
+        position: absolute;
+        top: 70px;
+        right: 0;
+        left: 0;
+        background-color: #ffffff;
+        flex-direction: column;
+        align-items: center;
+        gap: 0;
+        padding: 1rem 0;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        display: none;
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .nav-links a {
+        padding: 0.75rem 0;
+        width: 100%;
+        text-align: center;
+      }
+
+      .hero h1 {
+        font-size: 1.9rem;
+      }
+
+      .hero p {
+        font-size: 1rem;
+      }
+
+      .cards-grid {
+        grid-template-columns: 1fr;
+        max-width: 400px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <nav class="container">
+      <div class="logo">تجربتي الأولى</div>
+      <button class="menu-toggle" aria-label="فتح القائمة" onclick="toggleMenu()">☰</button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home">الرئيسية</a></li>
+        <li><a href="#about">عن الموقع</a></li>
+        <li><a href="#contact">تواصل</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero" id="home">
+    <h1>أهلاً بك في تجربتي الأولى</h1>
+    <p>نحن سعداء بوجودك هنا. استكشف الموقع واكتشف ما نقدمه لك من محتوى مميز وتجربة فريدة.</p>
+    <a href="#start" class="btn-primary">ابدأ الآن</a>
+  </section>
+
+  <section class="cards-section" id="about">
+    <div class="cards-grid">
+      <div class="card">
+        <div class="card-icon">🚀</div>
+        <h3>سرعة الأداء</h3>
+        <p>موقع سريع وخفيف يوفر لك تجربة تصفح سلسة دون أي تأخير أو انتظار.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">💡</div>
+        <h3>أفكار إبداعية</h3>
+        <p>محتوى متجدد يحمل لك الأفكار الإبداعية والحلول المبتكرة في مختلف المجالات.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🤝</div>
+        <h3>دعم ممتاز</h3>
+        <p>فريق جاهز لمساعدتك والإجابة على استفساراتك في أي وقت تحتاجه.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>جميع الحقوق محفوظة - 2026</p>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      const nav = document.getElementById('navLinks');
+      nav.classList.toggle('active');
+    }
+  </script>
+
+</body>
+</html>
